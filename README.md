@@ -54,8 +54,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/c
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
 ### Making a Progressive Web App
+![image alt](https://github.com/ONTI98/React-101-project-Star-Wars-generator/blob/main/fullstack487.png?raw=true)
 ![image alt](https://github.com/ONTI98/React-101-project-Star-Wars-generator/blob/main/fullstack488.png?raw=true)
-![image alt]()
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
