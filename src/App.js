@@ -41,6 +41,9 @@ function App() {
           <Route path="/search" exact>
             <Search searchText={searchText} searchResults={searchResults} />
           </Route>
+          <Route  path="" exact>
+            <Movie/>
+          </Route>
         </Switch>
       </div>
     </>

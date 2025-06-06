@@ -1,10 +1,9 @@
 const Movie=()=>{
-    rteturn (
+    return (
         <>
         </>
     )
 }
-
 
 
 export default Movie;

@@ -15,10 +15,9 @@ const Search = ({ searchText, searchResults }) => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title ">
+              <h5 className="card-title">
                 {response.title}
               </h5>
-
               <Link to="#" className="btn btn-primary ">
                 Movie details
               </Link>
