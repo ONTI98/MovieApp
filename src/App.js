@@ -22,6 +22,7 @@ function App() {
     fetch(`https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=${key}&language=en-US&page=1`)
     .then(response => response.json())
     .then(data =>{
+      console.log(data.results)
       setSearchResults(data.results)
     })
   },[searchText])
@@ -41,8 +42,8 @@ function App() {
           <Route path="/search" exact>
             <Search searchText={searchText} searchResults={searchResults} />
           </Route>
-          <Route  path="" exact>
-            <Movie/>
+          <Route  path="/movie/:id" exact>
+            <Movie />
           </Route>
         </Switch>
       </div>
