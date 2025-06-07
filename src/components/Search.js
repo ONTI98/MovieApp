@@ -1,12 +1,15 @@
 import Hero from "./Hero";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link} from "react-router-dom";
+
 
 //link for searching movie:https://api.themoviedb.org/3/search/movie?query=Dog&include_adult=false&language=en-US&page=1
 
 const Search = ({ searchText, searchResults }) => {
+ 
   const results = searchResults.map((response) => {
     return (
       <>
+      
         <div className="col">
           <div className="card mt-5 p-0 bg-dark">
             <img
@@ -18,7 +21,7 @@ const Search = ({ searchText, searchResults }) => {
               <h5 className="card-title">
                 {response.title}
               </h5>
-              <Link to="#" className="btn btn-primary ">
+              <Link to={`/movie/${response.id}`} className="btn btn-primary ">
                 Movie details
               </Link>
             </div>
