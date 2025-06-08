@@ -10,6 +10,7 @@ const Movie = () => {
   console.log(id);
 
   const [details, setDetails] = useState([]); //set a default state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -18,27 +19,39 @@ const Movie = () => {
       .then((Response) => Response.json())
       .then((data) => {
         console.log(data);
-        setDetails(data)
+        setDetails(data);
+        setLoading(false);
       });
-  }, [id]);
+  }, [id]); //id is the dependency
 
-
-  return (
-    <>
-      <Hero text={`About ${details.title}`} />
-      <div className="container text-center">
-        <div className="row row-cols-2 justify-content-center">
-            <div className="col border ">
-                <p> About this movie</p>
+  //create a function to display details based on the loading state/condition
+  function showDetails() {
+    if (loading) {
+      return (
+        <>
+          <Hero text="Loading ..." />
+        </>
+      );
+    }
+    if (!loading) {
+      return (
+        <>
+          <Hero text={`${details.title}`} />
+          <div className="container text-center">
+            <div className="row row-cols-2 justify-content-center">
+              <div className="col border  lead">
+                <p> {details.title}</p>
+              </div>
+              <div className="col border">
+                <img src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`} alt="" />
+              </div>
             </div>
-            <div className="col border">
-               <img src="{}" alt=""/> 
-            </div>
-        </div>
-      </div>
-      
-    </>
-  );
+          </div>
+        </>
+      );
+    }
+  }
+  return showDetails();
 };
 
 export default Movie;
