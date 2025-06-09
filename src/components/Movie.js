@@ -26,6 +26,10 @@ const Movie = () => {
 
   //create a function to display details based on the loading state/condition
   function showDetails() {
+    const image_url = `https://image.tmdb.org/t/p/w500/${details.poster_path}`;
+    const backdropUrl = `https://image.tmdb.org/t/p/original/${details.backdrop_path}`;
+
+    //if loading, return the "loding text in the hero section"
     if (loading) {
       return (
         <>
@@ -33,17 +37,22 @@ const Movie = () => {
         </>
       );
     }
-    if (!loading) {
+    if (details) {
       return (
         <>
-          <Hero text={`${details.title}`} />
-          <div className="container text-center">
-            <div className="row row-cols-2 justify-content-center">
-              <div className="col border  lead">
-                <p> {details.title}</p>
+          {/* new prop for the hero */}
+          <Hero text={`${details.title}`} backdrop={backdropUrl} />
+          <div className="container text-center ">
+            <div className="row row-cols-sm-1 row-cols-lg-2 row-cols-1 justify-content-center">
+              <div className="col p-5  ">
+                <img
+                  src={image_url}
+                  alt=""
+                  className="img-fluid rounded shadow-sm "
+                />
               </div>
-              <div className="col border">
-                <img src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`} alt="" />
+              <div className="col  p-5 lead">
+                <p> {details.title}</p>
               </div>
             </div>
           </div>
