@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Hero from "./Hero";
 import { useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
+
 
 //api=6e98202366e84040d483b4a1464c6649
 // https://api.themoviedb.org/3/movie/{id}?api_key=6e98202366e84040d483b4a1464c6649'
@@ -52,7 +52,8 @@ const Movie = () => {
                 />
               </div>
               <div className="col  p-5 lead">
-                <p> {details.title}</p>
+                <h2>{details.title}</h2><br></br>
+                <p>{details.overview}</p>
               </div>
             </div>
           </div>
