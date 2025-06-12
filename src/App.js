@@ -8,6 +8,7 @@ import Search from "./components/Search";
 import { useEffect } from "react";
 import { useState } from "react";
 import Movie from "./components/Movie";
+import PageNotFound from "./404Page";
 
 function App() {
   //states/hooks
@@ -22,13 +23,13 @@ function App() {
     fetch(`https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=${key}&language=en-US&page=1`)
     .then(response => response.json())
     .then(data =>{
-      console.log(data.results)
       setSearchResults(data.results)
     })
   },[searchText])
  
 
   return (
+    
     <>
       <Navbar searchText={searchText} setSearchText={setSearchText} />
       <div className="App">
@@ -42,8 +43,11 @@ function App() {
           <Route path="/search" exact>
             <Search searchText={searchText} searchResults={searchResults} />
           </Route>
-          <Route  path="/movie/:id" exact>
+          <Route  path="/movie/:id">
             <Movie />
+          </Route>
+          <Route path="/" >
+            <PageNotFound/>
           </Route>
         </Switch>
       </div>
