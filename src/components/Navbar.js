@@ -3,18 +3,22 @@ import { useHistory } from "react-router-dom";
 
 const Navbar = ({ searchText, setSearchText }) => {
   const history = useHistory();
-
+  //change the searchtext to the keyup event
   const changeSearchText = (event) => {
-    history.push("/search")
     setSearchText(event.target.value);
+  };
+  //define the on submit function
+  const submitSearchText = (event) => {
+    event.preventDefault();
+    history.push("/search");
   };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success ">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="#">
-            Movie Source
+          <Link className="navbar-brand" to="/">
+            Movie Scope
           </Link>
           <button
             className="navbar-toggler"
@@ -40,7 +44,8 @@ const Navbar = ({ searchText, setSearchText }) => {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex">
+            {/* on submit,follow this function */}
+            <form className="d-flex" onSubmit={submitSearchText}>
               <input
                 className="form-control me-2"
                 type="search"
